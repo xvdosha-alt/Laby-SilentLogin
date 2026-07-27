@@ -1,0 +1,18 @@
+[Unit]
+Description=Silent OAuth Login
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ms-oauth-login
+Environment=PYTHONPATH=/opt/ms-oauth-login
+Environment=UI_HOST=127.0.0.1
+Environment=UI_PORT=8792
+Environment=MS_OAUTH_NO_BROWSER=1
+Environment=HOME=/root
+ExecStart=/opt/ms-oauth-login/.venv/bin/python /opt/ms-oauth-login/web_login.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,3 @@
+httpx>=0.27
+browser-cookie3>=0.19
+playwright>=1.49
